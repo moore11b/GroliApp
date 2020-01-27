@@ -1,0 +1,51 @@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //	Project:		Project 3
+    //	File Name:		Create.cshtml
+    //	Course:			CSCI 3110-001 -Advanced Web
+    //	Author:			Cory Moore, moorecs1@etsu.edu, Department of Computing, East Tennessee State University
+    //	Created:		Thursday November 10th 2019
+    //	Copyright:		Cory Moore, 2019
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+@model Groliapp.Models.ViewModels.CreateGroceryListVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create New Grocery List</h2>
+<table>
+    <tr>
+        <td>
+
+            <form asp-action="Create">
+                <hr />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="GroceryListName" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="GroceryListName" class="form-control" />
+                        <span asp-validation-for="GroceryListName" class="text-danger"></span>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </td>
+                        <td>
+                            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+
+

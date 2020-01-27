@@ -1,0 +1,97 @@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //	Project:		Project 3
+    //	File Name:		Edit.cshtml
+    //	Course:			CSCI 3110-001 -Advanced Web
+    //	Author:			Cory Moore, moorecs1@etsu.edu, Department of Computing, East Tennessee State University
+    //	Created:		Thursday November 10th 2019
+    //	Copyright:		Cory Moore, 2019
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+@model Groliapp.Models.ViewModels.GroceryListVM
+@using Groliapp.Models.ViewModels
+
+@{
+    ViewData["Title"] = "Editing";
+}
+
+<h2>@ViewData["Title"] : @Model.GroceryListName</h2>
+
+@if (Model.UserName == Model.OwnerName)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" asp-controller="GroceryItem">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="GroceryListName" class="control-label"></label>
+                    <input asp-for="GroceryListName" class="form-control" />
+                    <span asp-validation-for="GroceryListName" class="text-danger"></span>
+                </div>
+                <div class="hide">
+                    <input name="OwnerId" value="@Model.OwnerId" type="hidden" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-warning" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr />
+}
+
+<div id="alertArea" class="alert alert-warning" role="alert"
+     style="display:none">
+    <span id="messageArea"></span>
+    <button id="alertCloseBtn" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true"></span>
+    </button>
+</div>
+
+<form id="groceryItemForm" asp-action="Create" asp-controller="GroceryItem" asp-route-listId="@Model.ListId">
+
+    <h4>Grocery Items in: @Model.GroceryListName</h4>
+    <table class="table" id="groceryItemForm">
+        <thead>
+            <tr id="row-@Html.DisplayNameFor(model => model.GroceryItems )">
+                <th>
+                    Item Name
+                </th>
+                <th>
+                    Amount
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbody-groceryItem">
+            @foreach (var item in Model.GroceryItems)
+            {
+                @if (Model.PriviledgedUsers.Contains(User.Identity.Name) && item.ListId == Model.ListId)
+                {
+                    <partial name="_GroceryItemRow" model="item" />
+                }
+            }
+        </tbody>
+        <tr>
+            <td>
+                <p>
+                    <button id="createNewGroceryItemBtn" type="button" class="btn btn-success">
+                        Create New Grocery Item
+                    </button>
+                </p>
+            </td>
+            <td>
+                <div>
+                    <a asp-action="Index" asp-controller="Home" type="button" class="btn btn-primary">Back to Home</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+
+@section Scripts{
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/groceryItemCreate.js"></script>
+}
+

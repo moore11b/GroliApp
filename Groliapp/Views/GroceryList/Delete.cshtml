@@ -1,0 +1,37 @@
+﻿@*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //	Project:		Project 3
+    //	File Name:		Delete.cshtml
+    //	Course:			CSCI 3110-001 -Advanced Web
+    //	Author:			Cory Moore, moorecs1@etsu.edu, Department of Computing, East Tennessee State University
+    //	Created:		Thursday November 10th 2019
+    //	Copyright:		Cory Moore, 2019
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+@model DeleteGroceryListVM
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+@if (Model.UserId == Model.OwnerId)
+{
+    <h3>Are you sure you want to delete this  list?</h3>
+    <div>
+        <h4>- @Model.GroceryListName </h4>
+        <hr />
+        <form asp-action="Delete">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="Index" asp-controller="Home" class="btn btn-primary pull-right">Back to Home</a>
+        </form>
+    </div>
+}
+else
+{
+    <h3>Only the Owner may delete this list.</h3>
+    <hr />
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary pull-right">Back to Home</a>
+}
+

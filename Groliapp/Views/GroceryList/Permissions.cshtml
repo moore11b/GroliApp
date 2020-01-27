@@ -1,0 +1,85 @@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //	Project:		Project 3
+    //	File Name:		Permissions.cshtml
+    //	Course:			CSCI 3110-001 -Advanced Web
+    //	Author:			Cory Moore, moorecs1@etsu.edu, Department of Computing, East Tennessee State University
+    //	Created:		Thursday November 10th 2019
+    //	Copyright:		Cory Moore, 2019
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+@model Groliapp.Models.ViewModels.UserListVM
+@using Groliapp.Models.ViewModels
+
+@{
+    ViewData["Title"] = "Permissions";
+}
+
+<div id="alertArea" class="alert alert-warning" role="alert"
+     style="display:none">
+    <span id="messageArea"></span>
+    <button id="alertCloseBtn" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true"></span>
+    </button>
+</div>
+<h2>Permissions for @Html.DisplayFor(model => model.ListName)</h2>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Permitted Users:
+                <hr />
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+
+                @foreach (var user in Model.UserList)
+                {
+                    @if (Model.PriviledgedUsers.Contains(user.Email) &&
+       user.Id != Model.OwnerId)
+                    {
+                        <p value="@user.Id">@user.UserName </p>
+                    }
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
+@if (Model.UserId == Model.OwnerId)
+{
+    <partial name="_grantPermission" model="Model" />
+    <partial name="_revokePermission" model="Model" />
+    <table class="table">
+        <tbody>
+            <tr>
+
+                <td>
+                    <input type="button" id="grantPermission" class="btn btn-success" value="Grant Permission" />
+                </td>
+                <td>
+                    <input type="button" id="revokePermission" class="btn btn-danger" value="Revoke Access" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+<table class="table">
+    <tbody>
+        <tr>
+
+            <td>
+                <div>
+                    <a asp-action="Index" asp-controller="Home" type="button" class="btn btn-primary">Back to Home</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="~/js/privUser.js"></script>
+}

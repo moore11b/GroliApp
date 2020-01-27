@@ -1,0 +1,38 @@
+﻿@*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //	Project:		Project 3
+    //	File Name:		_Create.cshtml
+    //	Course:			CSCI 3110-001 -Advanced Web
+    //	Author:			Cory Moore, moorecs1@etsu.edu, Department of Computing, East Tennessee State University
+    //	Created:		Thursday November 10th 2019
+    //	Copyright:		Cory Moore, 2019
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+@model CreateGroceryVM
+<tr id="row-createGroceryItem" style="display:none">
+    <td>
+        <label asp-for="ItemName " class="sr-only"></label>
+        <input asp-for="ItemName" class="form-control" />
+        <span asp-validation-for="ItemName" class="text-danger"></span>
+    </td>
+    <td>
+        <div class="form-group">
+            <label asp-for="Amount" class="sr-only"></label>
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+            <button id="cancelCreateGroceryItemBtn" class="btn btn-warning btn-sm">Cancel</button>
+        </div>
+    </td>
+</tr>
+
+

@@ -1,0 +1,45 @@
+﻿@*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //	Project:		Project 3
+    //	File Name:		_revokePermission.cshtml
+    //	Course:			CSCI 3110-001 -Advanced Web
+    //	Author:			Cory Moore, moorecs1@etsu.edu, Department of Computing, East Tennessee State University
+    //	Created:		Thursday November 10th 2019
+    //	Copyright:		Cory Moore, 2019
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+@model Groliapp.Models.ViewModels.UserListVM
+
+<form id="revokeForm" asp-action="RevokePermission" asp-controller="GroceryList">
+    <div id="deletePrivUser" class="form-horizontal">
+        <div class="form-group">
+
+            <input name="listId" id="deletePrivUser" type="hidden" value="@Model.ListId" />
+            <h5>Revoke Permission</h5>
+            <select asp-for="UserId" id="selectValueRevoke" class="form-control">
+                @foreach (var user in Model.UserList)
+                {
+                    @if (Model.PriviledgedUsers.Contains(user.Email) &&
+                     user.Id != Model.OwnerId)
+                    {
+                        <option value="@user.Id">@user.UserName </option>
+                    }
+                }
+            </select>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input name="listId" id="revokeListId" value="@Model.ListId"
+                       asp-for="ListId" type="hidden" />
+                <input id="deletePrivUser" type="submit" value="Save" class="btn btn-success" />
+                <input id="cancelDelete" type="button" value="Cancel" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

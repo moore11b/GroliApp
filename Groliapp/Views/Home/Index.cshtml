@@ -1,0 +1,112 @@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //	Project:		Project 3
+    //	File Name:		Index.cshtml
+    //	Course:			CSCI 3110-001 -Advanced Web
+    //	Author:			Cory Moore, moorecs1@etsu.edu, Department of Computing, East Tennessee State University
+    //	Created:		Thursday November 10th 2019
+    //	Copyright:		Cory Moore, 2019
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+
+
+@model Groliapp.Models.ViewModels.HomeVM
+<div id="alertArea" class="alert alert-warning" role="alert"
+     style="display:none">
+    <span id="messageArea"></span>
+    <button id="alertCloseBtn" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true"></span>
+    </button>
+</div>
+@if (Model.GroceryListCount > 0)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Grocery List Name
+                </th>
+                <th>
+                    Owner's Email
+                </th>
+                <th>
+                    Number of Items
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.GroceryLists)
+            {
+                <tr>
+                    @{
+                        int groceryItemCount = 0;
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GroceryListName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OwnerName)
+                    </td>
+                    @{
+                        groceryItemCount = Model.GroceryItems.Select(items => items).Where(i => i.ListId == item.Id).Count();
+                    }
+                    <td>
+                        <div> @groceryItemCount</div>
+                    </td>
+                    <td>
+                        <a asp-action="Details"
+                           asp-controller="GroceryList"
+                           asp-route-listId="@item.Id"
+                           class="btn btn-info">Details</a>
+                    </td>
+                    <td>
+                        <a asp-action="Edit"
+                           asp-controller="GroceryList"
+                           asp-route-id="@item.Id"
+                           class="btn btn-warning">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete"
+                           asp-controller="GroceryList"
+                           asp-route-id="@item.Id"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+                    <td>
+                        <a asp-action="Permissions"
+                           asp-controller="GroceryList"
+                           asp-route-listId="@item.Id"
+                           class="btn btn-dark">Permissions</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tr>
+            <td>
+                <a asp-action="Create" asp-controller="GroceryList"
+                   class="btn btn-success" style="width:125%">Create New Grocery List </a>
+            </td>
+        </tr>
+    </table>
+}
+else if (Model.GroceryListCount == 0 && Model.UserEmail != null)
+{
+    <p>No Lists found. Create one first!</p>
+    <tr>
+    </tr>
+    <tr>
+        <td>
+            <a asp-action="Create" asp-controller="GroceryList" class="btn btn-success">
+                Create New Grocery list
+            </a>
+        </td>
+    </tr>
+}
+else
+{
+    <p>Please log in, or create an account. </p>
+}
+@section Scripts{
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/groceryItemCreate.js"></script>
+}
