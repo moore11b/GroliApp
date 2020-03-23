@@ -6,6 +6,9 @@ C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.runtimeconfig.json
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.runtimeconfig.dev.json
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.dll
+C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.pdb
+C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.Views.dll
+C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.Views.pdb
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.csprojAssemblyReference.cache
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.RazorAssemblyInfo.cache
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.RazorAssemblyInfo.cs
@@ -36,9 +39,6 @@ C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Razor\Vie
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.RazorTargetAssemblyInfo.cache
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.RazorTargetAssemblyInfo.cs
-C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.pdb
-C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.Views.dll
-C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\bin\Debug\netcoreapp2.2\Groliapp.Views.pdb
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.Views.pdb
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.dll
 C:\LAST SEMESTER\SE2\Project\GroliApp\Groliapp\obj\Debug\netcoreapp2.2\Groliapp.pdb
