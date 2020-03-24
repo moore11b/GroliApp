@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'groliapp'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_65ebaba90f574f339c3a057468e78244 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3c35530a15974fdd9097b7f6fa471931 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
